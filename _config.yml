@@ -1,7 +1,7 @@
 # from - https://help.github.com/en/articles/about-github-pages-and-jekyll#configuring-jekyll-in-your-github-pages-site
 lsi: false
 safe: true
-source: /
+source: PersonalPortfolio/_site
 incremental: false
 highlighter: rouge
 gist:
