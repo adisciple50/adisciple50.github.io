@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <!--<link rel="stylesheet" href="/assets/main.css">-->
+</head>
+<body>
+<div class="navbar-nav">
+    {% for i in site.data.nav.docs %}
+        <!-- https://jekyllrb.com/tutorials/navigation/#scenario-6-applying-the-active-class-for-the-current-page -->
+        <a class="nav-item nav-link{% if page.url == i.url %} active{% endif %}" href="{{i.url}}">{{i.title}}</a></a>
+    {% endfor %}
+    {{ content }}
+</div>
+</body>
+</html>
