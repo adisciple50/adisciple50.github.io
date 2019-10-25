@@ -11,9 +11,26 @@
 <div class="navbar-nav">
     {% for i in site.data.nav.docs %}
         <!-- https://jekyllrb.com/tutorials/navigation/#scenario-6-applying-the-active-class-for-the-current-page -->
-        <a class="nav-item nav-link{% if page.url == i.url %} active{% endif %}" href="{{i.url}}">{{i.title}}</a></a>
+        <a id="{{i.title}}" class="nav-item nav-link{% if page.url.to_s == "/" + i.url.to_s %} active{% endif %}" href="{{i.url}}">{{i.title}}</a></a>
     {% endfor %}
     {{ content }}
 </div>
+<script>
+
+        function setActive () {
+        var items = document.getElementsByClassName("nav-link");
+        console.log(items)
+        console.log(window.location.pathname);
+        Array.from(items).forEach(function (item) {
+            console.log(item.href);
+
+            if( item.href == window.location.href){
+                item.setAttribute("class", item.getAttribute("class") + " active")
+            }
+        })
+    };
+        document.addEventListener("load",setActive())
+</script>
+
 </body>
 </html>
